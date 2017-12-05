@@ -36,10 +36,12 @@ class SwiftRobotControlCenter: RobotControlCenter {
         move()
         buildDiagonal2()
         turnLeft()
-        move()
-        turnLeft()
-        while rightIsClear {
-            piramida()
+        if frontIsClear {
+            move()
+            turnLeft()
+            while rightIsClear {
+                piramida()
+            }
         }
     }
     
@@ -65,6 +67,7 @@ class SwiftRobotControlCenter: RobotControlCenter {
             turnLeft()
         }
         put()
+        
     }
 
 

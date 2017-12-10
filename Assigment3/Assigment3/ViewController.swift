@@ -18,19 +18,21 @@ class ViewController: UIViewController {
         let maxValue = getMaxValue(var1: 11, var2: 6)
         print("0. Max value =", maxValue)
         
-        let result_2 = getSquareOrCubeOfNumber(var1: 2, isSquare: true)
-        print("1.1. Square =", result_2)
+        print(" ")
+        getSquareOrCubeOfNumber(var1: 2) //task 1
+        print(" ")
         
-        let result_3 = getSquareOrCubeOfNumber(var1: 2, isSquare: false)
-        print("1.2. Square =", result_3)
+        getNumbersUp(numberFrom: 5) // task 2
+        print("")
+        getNumbersDown(numberFrom: 5)
+        print(" ")
+        //print("2.1. Get numbers:", getNumbersUp(numberFrom: 5))
+        //print("2.2. Get numbers:", getNumbersDown(numberFrom: 5))
         
-        print("2.1. Get numbers:", getNumbersUp(numberFrom: 5))
-        print("2.2. Get numbers:", getNumbersDown(numberFrom: 5))
-        
-        print("3.1. Deliteli 6:", getAllDeliteli(number: 6))
-        print("3.2. Deliteli 28:", getAllDeliteli(number: 28))
-        print("3.3. Deliteli 496:", getAllDeliteli(number: 496))
-        print("3.4. Deliteli 8128:", getAllDeliteli(number: 8128))
+        print("Deliteli 6:", getAllDeliteli(number: 6))
+        print("Deliteli 28:", getAllDeliteli(number: 28))
+        print("Deliteli 496:", getAllDeliteli(number: 496))
+        print("Deliteli 8128:", getAllDeliteli(number: 8128))
         
         
         print(" ")
@@ -58,50 +60,52 @@ class ViewController: UIViewController {
         }
     }
     
-    func getSquareOrCubeOfNumber(var1: Int, isSquare: Bool) -> Int {
-        var result = 0;
-        if isSquare {
-            result = var1 * var1;
-        } else {
-            result = var1 * var1 * var1;
-        }
-        
-        return result;
+    func getSquareOrCubeOfNumber(var1: Int) {
+        var result = var1 * var1
+        print("Square =", result);
+        result = var1 * var1 * var1;
+        print("Cube =", result)
     }
     
-    func getNumbersUp (numberFrom: Int) -> String {
+    func getNumbersUp (numberFrom: Int) {
         var number = 0
-        var result: String = ""
+        //var result: String = ""
         while number < numberFrom {
-            result += String(number)
-            result += ", "
+            //result += String(number)
+            //result += ", "
+            print(number)
             number = number + 1
         }
-        result += String(numberFrom)
+        print(numberFrom)
+        //result += String(numberFrom)
         
-        return result
+        //return result
     }
     
-    func getNumbersDown (numberFrom: Int) -> String {
+    func getNumbersDown (numberFrom: Int) {
         var number = numberFrom
-        var result: String = ""
+        //var result: String = ""
         while number > 0 {
-            result += String(number)
-            result += ", "
+            //result += String(number)
+            //result += ", "
+            print(number)
             number = number - 1
         }
-        result += String(0)
+        print("0")
+        //result += String(0)
         
-        return result
+        //return result
     }
     
     func getAllDeliteli(number: Int) -> String {
         var result = ""
         var i = 0
+        var sum = 0
         
         while i < number - 1 {
             i = i + 1
             if number % i == 0 {
+                sum = sum + i
                 result += String(i)
                 result += ", "
             }
@@ -110,16 +114,20 @@ class ViewController: UIViewController {
         result.remove(at: result.index(before: result.endIndex))
         result.remove(at: result.index(before: result.endIndex))
         
+        print("")
+        print("Sum =", sum)
+        
         return result
     }
     
-    func getManhatentPercent(price: Float, yearStart: Int, yearEnd: Int) -> Float {
+    func getManhatentPercent(price: Double, yearStart: Int, yearEnd: Int) -> Double {
         var result = price
         var i = yearStart
         while (i < yearEnd) {
             result = result + result * 0.06
             i = i + 1
         }
+        result = Double(round(100 * result) / 100)
         
         return result
     }

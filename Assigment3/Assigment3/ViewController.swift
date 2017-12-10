@@ -22,10 +22,10 @@ class ViewController: UIViewController {
         getSquareOrCubeOfNumber(var1: 2) //task 1
         print(" ")
         
-        getNumbersUp(numberFrom: 5) // task 2
+        getNumbers(numberFrom: 5) // task 2
         print("")
-        getNumbersDown(numberFrom: 5)
-        print(" ")
+        //getNumbersDown(numberFrom: 5)
+
         //print("2.1. Get numbers:", getNumbersUp(numberFrom: 5))
         //print("2.2. Get numbers:", getNumbersDown(numberFrom: 5))
         
@@ -67,19 +67,11 @@ class ViewController: UIViewController {
         print("Cube =", result)
     }
     
-    func getNumbersUp (numberFrom: Int) {
-        var number = 0
-        //var result: String = ""
-        while number < numberFrom {
-            //result += String(number)
-            //result += ", "
-            print(number)
-            number = number + 1
+    func getNumbers (numberFrom: Int) {
+        for i in 0...numberFrom {
+            let p = numberFrom - i
+            print(i, p)
         }
-        print(numberFrom)
-        //result += String(numberFrom)
-        
-        //return result
     }
     
     func getNumbersDown (numberFrom: Int) {
